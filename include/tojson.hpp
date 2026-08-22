@@ -134,8 +134,7 @@ inline std::string repr(const nlohmann::json &j) {
 	if (j.is_boolean()) return j.get<bool>() ? "true" : "false";
 	if (j.is_number_float()) return std::to_string(j.get<double>());
 	if (j.is_string()) return j.get<std::string>();
-	std::runtime_error("invalid type");
-	return "";
+	throw std::runtime_error("invalid type");
 }
 
 /// \todo handle @text entries better
